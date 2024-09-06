@@ -116,8 +116,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    twistSpeed = frank.getTwist() * .25;
-    ySpeed = frank.getY() * .25;
+    twistSpeed = frank.getTwist() * .5;
+    ySpeed = frank.getY() * .5;
     if (Math.abs(ySpeed) < 0.05) {
       ySpeed = 0;
     }
@@ -127,9 +127,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Speed", ySpeed);
     driveTrain.arcadeDrive(twistSpeed, ySpeed);
     if (ySpeed > 0 && ySpeed < 1) {
-      led.set(0.59);
+      led.set(-0.93);
     } else if (ySpeed < 0 && ySpeed > -1) {
-      led.set(0.77);
+      led.set(-0.91);
     } else {
       led.set(-.33);
     }
